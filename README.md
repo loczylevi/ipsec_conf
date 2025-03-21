@@ -4,7 +4,7 @@
 
 
 
-uter#
+Router(config)#license boot module c1900 technology-package securityk9 
 Router#
 Router#
 Router#
