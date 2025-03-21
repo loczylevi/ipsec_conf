@@ -64,7 +64,7 @@ data          disable       None          None
 
 Configuration register is 0x2102
 
-
+reload
 conf t
 
 access-list ?
