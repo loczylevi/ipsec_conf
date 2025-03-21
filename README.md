@@ -4,17 +4,11 @@
 # R1
 ```bash
 
+en
 
+license boot module c1900 technology-package securityk9 
 
-Router(config)#license boot module c1900 technology-package securityk9 
-Router#
-Router#
-Router#
-Router#
-Router#
-Router#
-Router#
-Router#sh ver
+sh ver
 Cisco IOS Software, C1900 Software (C1900-UNIVERSALK9-M), Version 15.1(4)M4, RELEASE SOFTWARE (fc2)
 Technical Support: http://www.cisco.com/techsupport
 Copyright (c) 1986-2007 by Cisco Systems, Inc.
@@ -71,137 +65,67 @@ data          disable       None          None
 Configuration register is 0x2102
 
 
-Router#
-Router#
-Router#
-Router#
-Router#
-Router#
-Router#
-Router#
-Router#
-Router#
-Router#
-Router#
-Router#
-Router#
-Router#conf t
-Enter configuration commands, one per line.  End with CNTL/Z.
-Router(config)#
-Router(config)#
-Router(config)#
-Router(config)#acc
-Router(config)#access-list ?
+conf t
+
+access-list ?
   <1-99>     IP standard access list
   <100-199>  IP extended access list
-Router(config)#access-list 110 per
-Router(config)#access-list 110 permit i
-Router(config)#access-list 110 permit i
-Router(config)#access-list 110 permit i
-Router(config)#access-list 110 permit i
-Router(config)#access-list 110 permit i
-Router(config)#access-list 110 permit i
-Router(config)#access-list 110 permit ip 
-Router(config)#access-list 110 permit ip 
-Router(config)#access-list 110 permit ip 
 Router(config)#access-list 110 permit ip 192.168.1.0 0.0.0.255 192.168.3.0 0.0.0.255
-Router(config)#cr
-Router(config)#crypto is
-Router(config)#crypto isakmp po
-Router(config)#crypto isakmp policy 10
-Router(config-isakmp)#en
-Router(config-isakmp)#encryption a
-Router(config-isakmp)#encryption aes ?
+
+
+
+crypto isakmp policy 10
+encryption aes ?
   128  128 bit keys.
   192  192 bit keys.
   256  256 bit keys.
   <cr>
-Router(config-isakmp)#encryption aes 2
-Router(config-isakmp)#encryption aes 256 
-Router(config-isakmp)#gro
-Router(config-isakmp)#group 5
-Router(config-isakmp)#ex
-Router(config)#
-Router(config)#
-Router(config)#
-Router(config)#
-Router(config)#
-Router(config)#
-Router(config)#c
-Router(config)#c
-Router(config)#cry
-Router(config)#crypto is
-Router(config)#crypto isakmp k
-Router(config)#crypto isakmp key ?
+encryption aes 256 
+
+group 5
+ex
+crypto isakmp key ?
   WORD  The UNENCRYPTED (cleartext) user password
-Router(config)#crypto isakmp key alma1234 add
-Router(config)#crypto isakmp key alma1234 address ?
+crypto isakmp key alma1234 add
+crypto isakmp key alma1234 address ?
   A.B.C.D  Peer IP address
   ipv6     define shared key with IPv6 address
-Router(config)#crypto isakmp key alma1234 address 10.2.2.2
-Router(config)#cr
-Router(config)#crypto ip
-Router(config)#crypto ipsec tr
-Router(config)#crypto ipsec transform-set VPN-SET es
-Router(config)#crypto ipsec transform-set VPN-SET es
-Router(config)#crypto ipsec transform-set VPN-SET esp
-Router(config)#crypto ipsec transform-set VPN-SET esp
-Router(config)#crypto ipsec transform-set VPN-SET esp
-Router(config)#crypto ipsec transform-set VPN-SET esp-
-Router(config)#crypto ipsec transform-set VPN-SET esp-
-Router(config)#crypto ipsec transform-set VPN-SET esp-
-Router(config)#crypto ipsec transform-set VPN-SET esp-
-Router(config)#crypto ipsec transform-set VPN-SET esp-aes esp-sha-hmac
-Router(config)#cr
-Router(config)#crypto ma
-Router(config)#crypto map VPN-MAP 10 ipse
-Router(config)#crypto map VPN-MAP 10 ipsec-isakmp 
+crypto isakmp key alma1234 address 10.2.2.2     ! az ip cim az a destination address cél eszköz ip cime lesz
+```
+### ! az ip cim az a destination address cél eszköz ip cime lesz
+
+```bash
+crypto isakmp key alma1234 address 10.2.2.2
+```
+
+
+```bash
+crypto ipsec transform-set VPN-SET esp-aes esp-sha-hmac
+crypto map VPN-MAP 10 ipsec-isakmp 
 % NOTE: This new crypto map will remain disabled until a peer
         and a valid access list have been configured.
-Router(config-crypto-map)#set pe
-Router(config-crypto-map)#set peer 10.2.2.1
-Router(config-crypto-map)#set tra
-Router(config-crypto-map)#set transform-set VPN-SET 
-Router(config-crypto-map)#m
-Router(config-crypto-map)#match add
-Router(config-crypto-map)#match address 110
-Router(config-crypto-map)#i n
-Router(config-crypto-map)#in
-Router(config-crypto-map)#in
-Router(config-crypto-map)#in
-Router(config-crypto-map)#int
-Router(config-crypto-map)#int
-Router(config-crypto-map)#int
-Router(config-crypto-map)#int
-Router(config-crypto-map)#int
-Router(config-crypto-map)#int
-Router(config-crypto-map)#int
-Router(config-crypto-map)#int
-Router(config-crypto-map)#int
-Router(config-crypto-map)#int
-Router(config-crypto-map)#int
-Router(config-crypto-map)#int
-Router(config-crypto-map)#int
-Router(config-crypto-map)#int
-Router(config-crypto-map)#int
-Router(config-crypto-map)#int s0/1/0
-Router(config-if)#cr
-Router(config-if)#crypto m
-Router(config-if)#crypto map VPN-MAP
-*Jan  3 07:16:26.785: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is ON
-Router(config-if)#end
-Router#
-%SYS-5-CONFIG_I: Configured from console by console
+set peer 10.2.2.1                                ! az ip cim az a destination address cél eszköz ip cime lesz
+```
+### ! az ip cim az a destination address cél eszköz ip cime lesz
 
-Router#
-Router#
-Router#
-Router#cop
-Router#copy ru
-Router#copy running-config st
-Router#copy running-config startup-config 
-Destination filename [startup-config]? 
-Building configuration...
+```bash
+set peer 10.2.2.1
+```
+
+
+```bash
+
+set transform-set VPN-SET 
+match address 110                 ! ACL cumber i guess
+
+int s0/1/0
+crypto map VPN-MAP
+*Jan  3 07:16:26.785: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is ON
+end
+
+copy running-config startup-config 
+
+
 [OK]
 Router#
 Router#
