@@ -339,7 +339,7 @@ Router#
 Router#
 ```
 
-jó javitott conbfig
+# jó javitott connfig
 
 ```bash
 
