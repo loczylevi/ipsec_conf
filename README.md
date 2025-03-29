@@ -338,3 +338,73 @@ Router#
 Router#
 Router#
 ```
+
+jó javitott conbfig
+
+```bash
+
+
+
+en 
+conf t
+
+license boot module c1900 technology-package securityk9 
+
+end
+copy run start
+reload
+
+
+conf t
+
+access-list 170 permit ip 211.193.88.0 0.0.0.255 15.12.25.0 0.0.0.255
+
+
+crypto isakmp policy 12
+ encr aes 256
+ authentication pre-share
+ group 5
+ex
+
+
+crypto isakmp key sigmakosteszta address 192.168.100.26
+crypto ipsec transform-set SIG-MAKOS-TESZTA esp-aes esp-sha-hmac
+
+crypto map SIG-MAKOS-TESZTA 12 ipsec-isakmp 
+ set peer 192.168.100.26
+ set transform-set SIG-MAKOS-TESZTA
+ match address 170
+ex
+
+
+int serial gig0/1
+crypto map SIG-MAKOS-TESZTA
+
+
+
+```
+
+
+
+## kettó darab ipsec tunnel de csak egy interfészen csak egy darab crpyto map lehet igy kell megcsinálni
+### ez már plusz opcionális
+```bash
+crypto map VPN-MAP 10 ipsec-isakmp 
+ set peer 192.168.100.17
+ set transform-set VPN-SET
+ match address 110
+
+crypto map VPN-MAP 20 ipsec-isakmp 
+ set peer 192.168.100.26
+ set transform-set SIG-MAKOS-TESZTA
+ match address 170
+
+
+interface gig0/1
+ crypto map VPN-MAP
+
+
+
+
+
+```
